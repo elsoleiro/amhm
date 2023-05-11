@@ -47,8 +47,3 @@ class Window:
             return True
         else:
             raise Exception("Unable to take screenshot, breaking!")
-
-
-x = Window('Untitled - Paint')
-x.save_screenshot()
-x.is_foreground()
