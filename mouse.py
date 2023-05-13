@@ -5,7 +5,7 @@ import time
 
 paint = True
 
-def move_mouse(start_x, start_y, dest_x, dest_y, G_0=10, W_0=2, M_0=13, D_0=10):
+def next_point(start_x, start_y, dest_x, dest_y, G_0=10, W_0=2, M_0=13, D_0=10):
     '''
     WindMouse algorithm. Calls the move_mouse kwarg with each new step.
     Released under the terms of the GPLv3 license.
@@ -42,15 +42,15 @@ def move_mouse(start_x, start_y, dest_x, dest_y, G_0=10, W_0=2, M_0=13, D_0=10):
         move_y = int(np.round(start_y))
         if current_x != move_x or current_y != move_y:
             time.sleep(0.01) # mouse polling rate? investigate
-            drive_mouse(current_x:=move_x,current_y:=move_y, paint)
+            move_mouse(current_x:=move_x,current_y:=move_y, paint)
     return current_x,current_y
 
 
-def drive_mouse(x,y, paint):
+def move_mouse(x,y, paint):
     if paint:
         ctypes.windll.user32.mouse_event(2, 0, 0, 0,0) # left down
-        ctypes.windll.user32.SetCursorPos(x,y)
         ctypes.windll.user32.mouse_event(4, 0, 0, 0,0) # left up
+        ctypes.windll.user32.SetCursorPos(x,y)
     else:
         ctypes.windll.user32.SetCursorPos(x,y)
 

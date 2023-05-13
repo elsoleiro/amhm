@@ -1,11 +1,15 @@
 from screen import Window
-from mouse import move_mouse
+from mouse import next_point
 
-target = 'Untitled - Paint'
+def main():
+    target = 'Untitled - Paint'
 
-window = Window(target)
-window.is_foreground()
+    window = Window(target)
 
+    window.is_foreground()
 
-for i in range(10):
-    move_mouse(100,400,1300,400)
+    for i in range(10):
+        next_point(100,400,1300,400)
+
+if __name__ == '__main__':
+    main()
